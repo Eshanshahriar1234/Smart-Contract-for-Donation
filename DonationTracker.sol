@@ -3,14 +3,14 @@
 pragma solidity ^0.8.0;
 
 contract DonationTracker {
-    // State variables
+//Classifying the variables
     address public owner;
     uint256 public donationGoal;
     uint256 public totalDonations;
     bool public goalReached;
     mapping(address => uint256) public donations;
 
-    // Events
+//Defining the events in the Smart Contract
     event DonationReceived(address indexed donor, uint256 amount);
     event Withdrawal(address indexed recipient, uint256 amount);
     event GoalReached(uint256 totalDonations);
@@ -27,7 +27,7 @@ contract DonationTracker {
         donationGoal = _donationGoal;
     }
 
-    // Function to accept donations
+    // Function to accept the amount of donation in the Smart Contract
     function donate() external payable {
         require(msg.value > 0, "Donation amount must be greater than 0");
         
